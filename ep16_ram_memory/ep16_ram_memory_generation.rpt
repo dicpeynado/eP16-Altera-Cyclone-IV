@@ -1,0 +1,38 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Demom\Documents\eP16\ep16_ram_memory.qsys --block-symbol-file --output-directory=C:\Users\Demom\Documents\eP16\ep16_ram_memory --family="Cyclone IV E" --part=EP4CE6E22C8
+Progress: Loading eP16/ep16_ram_memory.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module onchip_memory2_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: ep16_ram_memory.onchip_memory2_0: onchip_memory2_0.s1 must be connected to an Avalon-MM master
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Demom\Documents\eP16\ep16_ram_memory.qsys --synthesis=VHDL --output-directory=C:\Users\Demom\Documents\eP16\ep16_ram_memory\synthesis --family="Cyclone IV E" --part=EP4CE6E22C8
+Progress: Loading eP16/ep16_ram_memory.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module onchip_memory2_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: ep16_ram_memory.onchip_memory2_0: onchip_memory2_0.s1 must be connected to an Avalon-MM master
+Info: ep16_ram_memory: Generating ep16_ram_memory "ep16_ram_memory" for QUARTUS_SYNTH
+Info: onchip_memory2_0: Starting RTL generation for module 'ep16_ram_memory_onchip_memory2_0'
+Info: onchip_memory2_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=ep16_ram_memory_onchip_memory2_0 --dir=C:/Users/Demom/AppData/Local/Temp/alt8623_18469542744037919.dir/0002_onchip_memory2_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/Demom/AppData/Local/Temp/alt8623_18469542744037919.dir/0002_onchip_memory2_0_gen//ep16_ram_memory_onchip_memory2_0_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2_0: Done RTL generation for module 'ep16_ram_memory_onchip_memory2_0'
+Info: onchip_memory2_0: "ep16_ram_memory" instantiated altera_avalon_onchip_memory2 "onchip_memory2_0"
+Info: rst_controller: "ep16_ram_memory" instantiated altera_reset_controller "rst_controller"
+Info: ep16_ram_memory: Done "ep16_ram_memory" with 3 modules, 5 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

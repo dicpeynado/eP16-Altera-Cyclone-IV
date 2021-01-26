@@ -108,16 +108,16 @@ begin
 		hw_xonoff_ff <= '0';  
 	elsif (clk_i'event and clk_i='1') then
 		if (tx_en='0') then
-		if (write_i='1' and ce_i='1') then
-			case addr_i is 
-			when "00"=>baudrate_reg<=data_i;
-			when "01"=>
-				tx_shift_reg<="11"&data_i(7 downto 0)&'0'; 
-				tx_rq<='1'; 
-			when "10"=>hw_xonoff_ff<=data_i(0);--flow Control
-			when others => null;
-			end case;
-		end if;	
+			if (write_i='1' and ce_i='1') then
+				case addr_i is 
+				when "00"=>baudrate_reg<=data_i;
+				when "01"=>
+					tx_shift_reg<="11"&data_i(7 downto 0)&'0'; 
+					tx_rq<='1'; 
+				when "10"=>hw_xonoff_ff<=data_i(0);--flow Control
+				when others => null;
+				end case;
+			end if;	
 		else
 			tx_rq <= '0';
 			if (tx_shift_en='1') then

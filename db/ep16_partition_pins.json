@@ -1,0 +1,109 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "uart_o",
+					"strict" : false
+				},
+				{
+					"name" : "acknowledge_o",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ioport[15]",
+					"strict" : false
+				},
+				{
+					"name" : "aclk",
+					"strict" : false
+				},
+				{
+					"name" : "arst",
+					"strict" : false
+				},
+				{
+					"name" : "uart_i",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

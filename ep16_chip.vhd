@@ -30,12 +30,12 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_misc.all;
 use ieee.std_logic_unsigned.all;
 
-entity ep32_chip is 
+entity ep16_chip is 
 port(
 	-- input port
 	aclk:			in		std_logic; 
 	arst:			in		std_logic;
-	interrupt_i:	in		std_logic_vector(4 downto 0);
+	--interrupt_i:	in		std_logic_vector(4 downto 0);
 	uart_i:			in		std_logic;
 	-- output port
 	uart_o:			out		std_logic;
@@ -43,10 +43,10 @@ port(
 	-- GPIO Interface
 	ioport:			inout 	std_logic_vector(15 downto 0)
 	);
-end entity ep32_chip;
+end entity ep16_chip;
 
 
-architecture behavioral of ep32_chip is
+architecture behavioral of ep16_chip is
   -- component declaration
   component ep16 is 
 	port(
@@ -86,17 +86,16 @@ architecture behavioral of ep32_chip is
 	);
   end component;
 
-
-component ram_memory
-	port (
-		Clock: 		in  	std_logic;
-		ClockEn: 	in  	std_logic; 
-		Reset: 		in  	std_logic;
-		WE: 		in  	std_logic; 
-		Address: 	in  	std_logic_vector(11 downto 0); 
-		Data: 		in  	std_logic_vector(15 downto 0); 
-		Q: 			out  	std_logic_vector(15 downto 0));
-end component;
+component ep16_ram
+	port
+	(
+		address		: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
+		clock		: IN STD_LOGIC  := '1';
+		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+		wren		: IN STD_LOGIC ;
+		q		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+	);
+end component ep16_ram;
 
 component gpio
 	port(
@@ -172,7 +171,7 @@ begin
 		-- input port
 		clk => aclk,
 		clr => m_rst,
-		interrupt => interrupt_i,
+		interrupt => (others => '0'),
 		data_i => cpu_data_i,
 		intack => acknowledge_o,
 		read => cpu_m_read,
@@ -234,15 +233,13 @@ begin
 	uart_o <= uart_txd;
  
 -- ========================= RAM Block ========================	
-ram_memory_0 : ram_memory
+ram_memory_0 : ep16_ram
 	PORT MAP (
-		Address	=> memory_addr,
-		Clock	=> m_clk,
-		ClockEn	=> '1',
-		Reset	=> '0',
-		Data	=> memory_data_i,
-		WE	=> system_write,
-		Q		=> memory_data_o
+		address	=> memory_addr,
+		clock	=> m_clk,
+		data	=> memory_data_i,
+		wren	=> system_write,
+		q		=> memory_data_o
 	);
 
   memory_addr <= cpu_addr_o(11 downto 0);

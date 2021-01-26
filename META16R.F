@@ -77,20 +77,23 @@ CREATE CRLF-ARRAY 0D C, 0A C,
    ;
 : write-mif-header
       hFile @ 
-      $" #Format=AddrHex " 
+      $" DEPTH = 4096;" 
       write-mif-line
       hFile @ 
-      $" #Depth=4096 " 
+      $" WIDTH = 16;" 
       write-mif-line
       hFile @ 
-      $" #Width=32 " 
+      $" ADDRESS_RADIX = HEX;" 
       write-mif-line
       hFile @ 
-      $" #AddrRadix=3 " 
+      $" DATA_RADIX = HEX;" 
       write-mif-line
-      hFile @ 
-      $" #DataRadix=3 " 
-      write-mif-line
+	  hFile @ 
+	  $" CONTENT"
+	  write-mif-line
+	  hFile @ 
+	  $" BEGIN"
+	  write-mif-line
    ;
 
 : write-mif-data
@@ -111,12 +114,20 @@ CREATE CRLF-ARRAY 0D C, 0A C,
       0 ( lpOverlapped )
       WriteFile
       IF ELSE ." write error" QUIT THEN
-      CRLF
+      hFile @ 
+	  $" ;"
+	  write-mif-line
     THEN
       1+
    THEN NEXT
    DROP ( discard ram location )
    ;
+
+: write-mif-footer
+	hFile @ 
+	$" END"
+	write-mif-line 
+	;
 
 : close-mif-file
    hFile @ CloseHandle DROP
@@ -126,6 +137,7 @@ CREATE CRLF-ARRAY 0D C, 0A C,
    open-mif-file
    write-mif-header
    write-mif-data
+   write-mif-footer
    close-mif-file
    ;
    

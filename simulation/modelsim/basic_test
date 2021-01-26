@@ -1,0 +1,3 @@
+force -freeze sim:/ep16_chip/aclk 1 0, 0 {5 ps} -r 10
+force -freeze sim:/ep16_chip/arst 0 0
+force -freeze sim:/ep16_chip/arst 1 50

@@ -19,7 +19,7 @@ cr
 : cpi 2C ldi ;          \ assembler slot poiner
 : cpw 2D ldi ;         \ pointer to word under construction
 
-: etxbuf    FF00 ldi ; 
+: etxbuf    FF01 ldi ; 
 : etxbempty FF01 ldi ;
 : erxbfull  FF02 ldi ;
 : erxbuf    FF03 ldi ;

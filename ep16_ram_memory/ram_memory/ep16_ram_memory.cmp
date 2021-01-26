@@ -1,0 +1,14 @@
+	component ep16_ram_memory is
+		port (
+			clk_clk         : in  std_logic                     := 'X';             -- clk
+			data_address    : in  std_logic_vector(10 downto 0) := (others => 'X'); -- address
+			data_clken      : in  std_logic                     := 'X';             -- clken
+			data_chipselect : in  std_logic                     := 'X';             -- chipselect
+			data_write      : in  std_logic                     := 'X';             -- write
+			data_readdata   : out std_logic_vector(15 downto 0);                    -- readdata
+			data_writedata  : in  std_logic_vector(15 downto 0) := (others => 'X'); -- writedata
+			data_byteenable : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- byteenable
+			reset_reset_n   : in  std_logic                     := 'X'              -- reset_n
+		);
+	end component ep16_ram_memory;
+
